@@ -22,6 +22,7 @@ class Square {
         } else if (this.type ==="\\") {
             line(this.x, this.y, this.x + size, this.y + size)
         }
+        
     }
 
 }

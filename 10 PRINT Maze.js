@@ -11,7 +11,10 @@ function setup() {
     createCanvas(cols * size, size * rows);
 
     initializeSpots();
-    end;
+
+
+    //THIS sfheiuf
+
     start = squares[1][1].top;
     end = squares[cols - 2][rows - 2].bottom;
 }

@@ -17,9 +17,9 @@ class Square {
     }
 
     draw() {
-        if (this.type==="/") {
+        if (this.type === "/") {
             line(this.x, this.y + size, this.x + size, this.y);
-        } else if (this.type ==="\\") {
+        } else if (this.type === "\\") {
             line(this.x, this.y, this.x + size, this.y + size)
         }
         

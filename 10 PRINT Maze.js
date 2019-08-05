@@ -1,40 +1,30 @@
 const cols = 16,
     rows = 9;
-const size = 37;
 
-var squares = [];
-var spots = [];
+var size, u;
+
+var spots = [],
+    symbols = [];
 
 var start, end;
 
 function setup() {
-    createCanvas(cols * size, size * rows);
+    createCanvas(windowWidth, windowHeight);
+    strokeWeight(3);
 
-    initializeSpots();
+    size = min(height / rows, width / cols);
+    u = min(height / (4 * rows), width / (4 * cols));
 
-
-    //THIS sfheiuf
-
-    start = squares[1][1].top;
-    end = squares[cols - 2][rows - 2].bottom;
+    initializeSymbols(symbols);
+    initializeSpots(spots);
 }
 
 function draw() {
-    for (const s of spots) {
-        if (s === start || s === end) {
-            stroke(255, 0, 0);
-            strokeWeight(10);
-        } else {
-            stroke(0);
-            strokeWeight(5);
-        }
-        s.draw();
-    }
+    background(255);
 
-    strokeWeight(3);
-    for (const sq_ of squares) {
-        for (const sq of sq_) {
-            sq.draw();
+    for (var i = 0; i < cols * 4 + 1; i++) {
+        for (var j = 0; j < rows * 4 + 1; j++) {
+            spots[i][j].draw();
         }
     }
 }

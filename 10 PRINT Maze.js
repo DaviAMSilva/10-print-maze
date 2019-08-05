@@ -17,16 +17,17 @@ function setup() {
 
     initializeSymbols(symbols);
     initializeSpots(spots);
+    initializeNeighbors(spots);
 }
 
 function draw() {
     background(255);
 
-    for (var i = 0; i < cols * 4 + 1; i++) {
-        for (var j = 0; j < rows * 4 + 1; j++) {
-            spots[i][j].draw();
-        }
-    }
+    // for (var i = 0; i < cols * 4 + 1; i++) {
+    //     for (var j = 0; j < rows * 4 + 1; j++) {
+    //         spots[i][j].draw();
+    //     }
+    // }
 
     for (var i = 0; i < cols; i++) {
         for (var j = 0; j < rows; j++) {

@@ -5,6 +5,7 @@ class Spot {
         this.y = y;
 
         this.wall = wall;
+        this.neighbors = [];
     }
 
 

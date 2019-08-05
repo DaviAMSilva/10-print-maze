@@ -5,15 +5,13 @@ class Spot {
         this.y = y;
 
         this.wall = wall;
-        this.isSpot = true;
     }
 
 
-    draw() {
-        if (this.wall) {
-            stroke(0,0,0,255);
-        } else {
-            stroke(255, 0, 0, 10);
+    draw(col) {
+        col ? stroke(col) : stroke(255, 50);
+        if (!this.wall) {
+            stroke(255, 0, 0, 50);
         }
         point(this.x, this.y);
     }

@@ -1,7 +1,7 @@
 const cols = 16,
     rows = 9;
 
-var size, u;
+var size, unit;
 
 var spots = [],
     symbols = [];
@@ -13,7 +13,7 @@ function setup() {
     strokeWeight(3);
 
     size = min(height / rows, width / cols);
-    u = min(height / (4 * rows), width / (4 * cols));
+    unit = min(height / (4 * rows), width / (4 * cols));
 
     initializeSymbols(symbols);
     initializeSpots(spots);
@@ -25,6 +25,13 @@ function draw() {
     for (var i = 0; i < cols * 4 + 1; i++) {
         for (var j = 0; j < rows * 4 + 1; j++) {
             spots[i][j].draw();
+        }
+    }
+
+    for (var i = 0; i < cols; i++) {
+        for (var j = 0; j < rows; j++) {
+            stroke(0);
+            symbols[i][j].draw(i * size, j * size, size);
         }
     }
 }

@@ -1,6 +1,7 @@
 var blank = [];
 blank.draw = function () { }
 
+
 var invSlash = [
     { x: 0, y: 0 },
     { x: 1, y: 1 },
@@ -11,6 +12,7 @@ var invSlash = [
 invSlash.draw = function (x, y, size) {
     line(x, y, x + size, y + size);
 }
+
 
 var slash = [
     { x: 0, y: 4 },

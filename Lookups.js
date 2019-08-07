@@ -1,15 +1,23 @@
 var neighborList = [
-    { x: 0, y: 2 },
+    // DIAGONALS
     { x: 1, y: 1 },
-    { x: 2, y: 0 },
     { x: 1, y: -1 },
-    { x: 0, y: -2 },
     { x: -1, y: -1 },
-    { x: -2, y: 0 },
-    { x: -1, y: 1 }
+    { x: -1, y: 1 },
 ];
+if (allowOrto) {
+    neighborList = neighborList.concat(
+        // HORIZANTALS & VERTICALS
+        { x: 0, y: 2 },
+        { x: 2, y: 0 },
+        { x: 0, y: -2 },
+        { x: -2, y: 0 }
+    )
+}
 
 
+
+// SHAPES
 
 var blank = [];
 blank.draw = function () { }

@@ -9,6 +9,17 @@ function initializeNeighbors(spots) {
                 if (spots[xIndex] && spots[xIndex][yIndex]) {
                     spots[i][j].neighbors.push(spots[xIndex][yIndex]);
                 }
+
+            }
+
+            if (i === 0 || i === cols * 4) {
+                if (spots[i][j + 4]) spots[i][j].neighbors.push(spots[i][j + 4]);
+                if (spots[i][j - 4]) spots[i][j].neighbors.push(spots[i][j - 4]);
+            }
+
+            if (j === 0 || j === rows * 4) {
+                if (spots[i + 4] && spots[i + 4][j]) spots[i][j].neighbors.push(spots[i + 4][j]);
+                if (spots[i - 4] && spots[i - 4][j]) spots[i][j].neighbors.push(spots[i - 4][j]);
             }
 
         }

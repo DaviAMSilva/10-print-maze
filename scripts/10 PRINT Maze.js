@@ -10,10 +10,9 @@ var path = [];
 var start, end;
 
 function setup() {
-    // randomSeed(3);
-
     createCanvas(windowWidth, windowHeight);
-    strokeWeight(3);
+    strokeJoin(ROUND);
+    noFill();
 
     size = min(height / rows, width / cols);
     unit = min(height / (4 * rows), width / (4 * cols));
@@ -22,8 +21,8 @@ function setup() {
     initializeSpots(spots);
     initializeNeighbors(spots);
 
-    start = spots[8][6];
-    end = spots[58][28];
+    start = spots[startSpot.i][startSpot.j];
+    end = spots[endSpot.i][endSpot.j];
 
     openSet.push(start);
 }
@@ -35,21 +34,29 @@ function draw() {
 
         // Best next option
         var winner = 0;
-        for (var i = 0; i < openSet.length; i++) {
-            // for (var i = openSet.length - 1; i >= 0; i--) {
-            if (openSet[i].f <= openSet[winner].f) {
 
-                winner = i;
-                //////###########
-
-            } else if (openSet[i].f === openSet[winner].f) {
-
+        if (fastThanEfficient) {
+            for (var i = 0; i < openSet.length; i++) {
                 if (openSet[i].h < openSet[winner].h) {
                     winner = i;
+                } else if (openSet[i].h === openSet[winner].h) {
+                    if (openSet[i].f < openSet[winner].f) {
+                        winner = i;
+                    }
                 }
-
+            }
+        } else {
+            for (var i = 0; i < openSet.length; i++) {
+                if (openSet[i].f < openSet[winner].f) {
+                    winner = i;
+                } else if (openSet[i].f === openSet[winner].f) {
+                    if (openSet[i].h < openSet[winner].h) {
+                        winner = i;
+                    }
+                }
             }
         }
+
         var current = openSet[winner];
 
         // Did I finish?
@@ -63,8 +70,6 @@ function draw() {
         // Best option moves from openSet to closedSet
 
         var index = openSet.indexOf(current);
-
-        // removeFromArray(openSet, current);
         openSet.splice(index, 1);
         closedSet.push(current);
 
@@ -107,14 +112,21 @@ function draw() {
     }
 
 
+    // -----===== DRAWING =====----- //
+
+
     background(255);
 
+    // Draws all the spots
     // for (var i = 0; i < cols * 4 + 1; i++) {
     //     for (var j = 0; j < rows * 4 + 1; j++) {
     //         if (spots[i][j]) spots[i][j].draw();
     //     }
     // }
 
+    // Draws all the symbols
+    stroke(0);
+    strokeWeight(3);
     for (var i = 0; i < cols; i++) {
         for (var j = 0; j < rows; j++) {
             stroke(0);
@@ -122,6 +134,7 @@ function draw() {
         }
     }
 
+    // Makes the path
     path = [];
     var temp = current;
     path.push(temp);
@@ -130,8 +143,9 @@ function draw() {
         temp = temp.previous;
     }
 
-    noFill();
-    stroke(255, 0, 200);
+    // Draws the path
+    stroke(255, 0, 100);
+    strokeWeight(7);
     beginShape();
     for (var i = 0; i < path.length; i++) {
         vertex(path[i].x, path[i].y);

@@ -5,10 +5,10 @@ function heuristic(a, b) {
     var d = dist(a.x, a.y, b.x, b.y);
 
     // Manhattan distance
-    var d = abs(a.x, a.y) + abs(b.x, b.y);
+    // var d = abs(a.x, a.y) + abs(b.x, b.y);
 
     // Constant distance
-    var d = 1;
+    // var d = 1;
 
     // Random distance :P
     // var d = random(100);

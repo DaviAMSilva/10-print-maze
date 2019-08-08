@@ -1,12 +1,12 @@
 // The grid of symbols
 var cols = 16,
-    rows = 8;
+    rows = 9;
 
 // Allow horizontal & vertical
 var allowOrto = true;
 
 // Allow the line to walk through the OUTER border
-var borderCrossing = true;
+var borderCrossing = false;
 
 // Be fast or efficient
 var fastThanEfficient = false;
@@ -16,7 +16,7 @@ var fastThanEfficient = false;
 var gap = 0;
 
 // The chance to have a symbol of any type
-var symbolChance = 0.7;
+var symbolChance = 0.6;
 
 // The start and the end of the maze
 var startSpot = {i:6,j:4};

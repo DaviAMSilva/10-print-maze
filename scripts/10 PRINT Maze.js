@@ -117,7 +117,7 @@ function draw() {
         }
         // Uh oh, no solution
     } else {
-        console.log('no solution');
+        console.log('No solution');
         noLoop();
         return;
     }

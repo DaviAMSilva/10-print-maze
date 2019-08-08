@@ -27,6 +27,17 @@ function setup() {
     openSet.push(start);
 }
 
+
+
+
+
+
+
+
+
+
+
+
 function draw() {
 
     // Am I still searching?
@@ -112,7 +123,13 @@ function draw() {
     }
 
 
+
+
+
     // -----===== DRAWING =====----- //
+
+
+
 
 
     background(255);
@@ -145,7 +162,7 @@ function draw() {
 
     // Draws the path
     stroke(255, 0, 100);
-    strokeWeight(7);
+    strokeWeight(5);
     beginShape();
     for (var i = 0; i < path.length; i++) {
         vertex(path[i].x, path[i].y);

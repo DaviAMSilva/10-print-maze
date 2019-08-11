@@ -13,15 +13,8 @@ class Spot {
     }
 
 
-    draw(col) {
-        col ? stroke(col) : stroke(255, 50);
-        if (!this.wall) {
-            stroke(255, 0, 0, 50);
-        }
-        if (this === start || this === end) {
-            stroke(0, 0, 255);
-        }
-        point(this.x, this.y);
+    draw() {
+        if (!this.wall)point(this.x, this.y);
     }
 
 }

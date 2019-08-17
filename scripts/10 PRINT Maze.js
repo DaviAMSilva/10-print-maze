@@ -132,27 +132,30 @@ function draw() {
 
     background(255);
 
-    // Draws all the spots (REALLY SLOW)
-    strokeWeight(3);
-    stroke(0, 50);
-    for (var i = 0; i < cols * 4 + 1; i++) {
-        for (var j = 0; j < rows * 4 + 1; j++) {
-            if (spots[i][j]) spots[i][j].draw();
+    if (drawAllSpots) {
+        // Draws all the spots (REALLY SLOW)
+        strokeWeight(3);
+        stroke(0, 50);
+        for (var i = 0; i < cols * 4 + 1; i++) {
+            for (var j = 0; j < rows * 4 + 1; j++) {
+                if (spots[i][j]) spots[i][j].draw();
+            }
         }
     }
+    if (drawSetSpots) {
+        // Draws all the spots in the closedSet (SLOWS DOWN)
+        strokeWeight(6);
+        stroke(255, 0, 0, 200);
+        for (var i = 0; i < closedSet.length; i++) {
+            closedSet[i].draw();
+        }
 
-    // Draws all the spots in the closedSet (SLOWS DOWN)
-    strokeWeight(6);
-    stroke(255, 0, 0, 200);
-    for (var i = 0; i < closedSet.length; i++) {
-        closedSet[i].draw();
-    }
-
-    // Draws all the spots in the openSet
-    strokeWeight(6);
-    stroke(0, 255, 0, 200);
-    for (var i = 0; i < openSet.length; i++) {
-        openSet[i].draw();
+        // Draws all the spots in the openSet
+        strokeWeight(6);
+        stroke(0, 255, 0, 200);
+        for (var i = 0; i < openSet.length; i++) {
+            openSet[i].draw();
+        }
     }
 
     // Draws all the symbols

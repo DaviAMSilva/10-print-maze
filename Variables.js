@@ -14,6 +14,12 @@ var fastThanEfficient = false;
 // Avoid borders at all cost
 var avoidBorders = false;
 
+// Draw all the spots
+var drawAllSpots = false;
+
+// Draw spots on the open & closed sets
+var drawSetSpots = true;
+
 // How many symbols are missing at each outer border
 // Don't go too crazy with it
 var gap = 0;

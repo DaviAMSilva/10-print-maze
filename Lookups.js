@@ -17,7 +17,7 @@ if (allowOrto) {
 
 
 
-// SHAPES
+// Symbols
 
 var blank = [];
 blank.draw = function () { }

@@ -1,6 +1,6 @@
 class Spot {
 
-    constructor(x, y, wall) {
+    constructor(x, y, wall, atBorder) {
         this.x = x;
         this.y = y;
 
@@ -10,11 +10,13 @@ class Spot {
 
         this.wall = wall || false;
         this.neighbors = [];
+
+        this.atBorder = atBorder;
     }
 
 
     draw() {
-        if (!this.wall)point(this.x, this.y);
+        if (!this.wall) point(this.x, this.y);
     }
 
 }

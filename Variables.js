@@ -11,6 +11,9 @@ var borderCrossing = true;
 // Be fast or efficient
 var fastThanEfficient = false;
 
+// Avoid borders at all cost
+var avoidBorders = false;
+
 // How many symbols are missing at each outer border
 // Don't go too crazy with it
 var gap = 0;

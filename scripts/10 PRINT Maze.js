@@ -29,15 +29,6 @@ function setup() {
 
 
 
-
-
-
-
-
-
-
-
-
 function draw() {
 
     // Am I still searching?
@@ -69,6 +60,13 @@ function draw() {
         }
 
         var current = openSet[winner];
+
+        // By giving adding the g score a arbitrary number the "AI" will avoid borders when possibly
+        if (avoidBorders) {
+            if (current.atBorder) {
+                current.g += 100000;
+            }
+        }
 
         // Did I finish?
         if (current === end) {
@@ -136,7 +134,7 @@ function draw() {
 
     // Draws all the spots (REALLY SLOW)
     strokeWeight(3);
-    stroke(0,50);
+    stroke(0, 50);
     for (var i = 0; i < cols * 4 + 1; i++) {
         for (var j = 0; j < rows * 4 + 1; j++) {
             if (spots[i][j]) spots[i][j].draw();
@@ -145,14 +143,14 @@ function draw() {
 
     // Draws all the spots in the closedSet (SLOWS DOWN)
     strokeWeight(6);
-    stroke(255,0,0,200);
+    stroke(255, 0, 0, 200);
     for (var i = 0; i < closedSet.length; i++) {
         closedSet[i].draw();
     }
 
     // Draws all the spots in the openSet
     strokeWeight(6);
-    stroke(0,255,0,200);
+    stroke(0, 255, 0, 200);
     for (var i = 0; i < openSet.length; i++) {
         openSet[i].draw();
     }
@@ -177,7 +175,7 @@ function draw() {
     }
     // Draws the path
     strokeWeight(7);
-    stroke(255,0,150);
+    stroke(255, 0, 150);
     beginShape();
     for (var i = 0; i < path.length; i++) {
         vertex(path[i].x, path[i].y);
@@ -185,7 +183,7 @@ function draw() {
     endShape();
 
     // Draws the start & end
-    stroke(0,0,255);
+    stroke(0, 0, 255);
     strokeWeight(15);
     start.draw();
     end.draw();

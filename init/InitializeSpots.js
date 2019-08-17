@@ -5,7 +5,8 @@ function initializeSpots(spots) {
       for (var j = 0; j < rows * 4 + 1; j++) {
          // Initialize the spots in a grid pattern to save memory
          if ((i + j) % 2 === 0) {
-            spots[i][j] = new Spot(size * i / 4, size * j / 4);
+            var atBorder = (i === 0 || i === cols * 4 || j === 0 || j === rows * 4);
+            spots[i][j] = new Spot(size * i / 4, size * j / 4, false, atBorder);
          }
       }
    }
@@ -13,7 +14,6 @@ function initializeSpots(spots) {
    // Add walls
    for (var i = 0; i < cols * 4; i += 4) {
       for (var j = 0; j < rows * 4; j += 4) {
-
          if (symbols[i / 4] && symbols[i / 4][j / 4]) {
             for (const s of symbols[i / 4][j / 4]) {
                var xIndex = i + s.x;
@@ -22,7 +22,6 @@ function initializeSpots(spots) {
                // true means is a wall
             }
          }
-
       }
    }
 }

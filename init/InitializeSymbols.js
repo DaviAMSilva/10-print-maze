@@ -1,7 +1,5 @@
 function initializeSymbols(symbols) {
 
-    var allSymbols = [slash, invSlash];
-
     for (var i = 0; i < cols; i++) {
         symbols[i] = [];
         for (var j = 0; j < rows; j++) {

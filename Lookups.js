@@ -19,8 +19,18 @@ if (allowOrto) {
 
 // Symbols
 
+/**
+* @param allSymbols is a array that stores the symbols,
+* which are a array of objects representing the spots
+* with a draw function with coordinates and size as inputs
+* Fell free to suggest new symbols
+*/
+
+var allSymbols = [];
+
 var blank = [];
 blank.draw = function () { }
+allSymbols.push(blank);
 
 
 var invSlash = [
@@ -33,6 +43,7 @@ var invSlash = [
 invSlash.draw = function (x, y, size) {
     line(x, y, x + size, y + size);
 }
+allSymbols.push(invSlash);
 
 
 var slash = [
@@ -45,3 +56,4 @@ var slash = [
 slash.draw = function (x, y, size) {
     line(x, y + size, x + size, y);
 }
+allSymbols.push(slash);

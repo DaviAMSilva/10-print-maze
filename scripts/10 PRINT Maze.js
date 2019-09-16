@@ -61,7 +61,7 @@ function draw() {
 
         var current = openSet[winner];
 
-        // By giving adding the g score a arbitrary number the "AI" will avoid borders when possibly
+        // By giving adding the g score a arbitrary number the "AI" will avoid borders when possible
         if (avoidBorders) {
             if (current.atBorder) {
                 current.g += 100000;

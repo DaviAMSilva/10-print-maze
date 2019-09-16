@@ -21,12 +21,18 @@ var drawAllSpots = false;
 var drawSetSpots = true;
 
 // How many symbols are missing at each outer border
-// Don't go too crazy with it
+// Don't go too crazy with it!
 var gap = 0;
 
 // The chance to have a symbol of any type
-var symbolChance = 0.6;
+var symbolChance = 0.5;
 
 // The start and the end of the maze
-var startSpot = {i:6,j:4};
-var endSpot = {i:cols*4-6,j:rows*4-4};
+var startSpot = {
+    i: 6,
+    j: 4
+};
+var endSpot = {
+    i: cols * 4 - 6,
+    j: rows * 4 - 4
+};
